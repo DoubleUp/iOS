@@ -8,23 +8,119 @@
 
 #import "AppDelegate.h"
 
-#import "FirstViewController.h"
+@interface AppDelegate() <UIApplicationDelegate> //, UITabBarControllerDelegate>
+{
+    UIWindow *portraitWindow;
+    UITabBarController *tabBarController;
+}
 
-#import "SecondViewController.h"
+@end
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- init
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    UIViewController *viewController1 = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
-    UIViewController *viewController2 = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
-    self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[viewController1, viewController2];
-    self.window.rootViewController = self.tabBarController;
-    [self.window makeKeyAndVisible];
-    return YES;
+	if (self = [super init])
+    {
+		// initialize  to nil
+		portraitWindow = nil;
+		tabBarController = nil;
+	}
+	return self;
+}
+
+- (UINavigationController *)newNavigationControllerWrappingViewControllerForDataSourceOfClass:(Class)datasourceClass {
+	// this is entirely a convenience method to reduce the repetition of the code
+	// in the setupPortaitUserInterface
+	// it returns a retained instance of the UINavigationController class. This is unusual, but
+	// it is necessary to limit the autorelease use as much as possible.
+	
+	// for each tableview 'screen' we need to create a datasource instance (the class that is passed in)
+	// we then need to create an instance of ElementsTableViewController with that datasource instance
+	// finally we need to return a UINaviationController for each screen, with the ElementsTableViewController
+	// as the root view controller.
+	
+	// many of these require the temporary creation of objects that need to be released after they are configured
+	// and factoring this out makes the setup code much easier to follow, but you can still see the actual
+	// implementation here
+	
+	
+	// the class type for the datasource is not crucial, but that it implements the
+	// ElementsDataSource protocol and the UITableViewDataSource Protocol is.
+//	id<UITableViewDataSource> dataSource = [[datasourceClass alloc] init];
+	
+	// create the ElementsTableViewController and set the datasource
+	UITableViewController *theViewController;
+//	theViewController = [[UITableViewController alloc] initWithDataSource:dataSource];
+	
+	// create the navigation controller with the view controller
+	UINavigationController *theNavigationController;
+	theNavigationController = [[UINavigationController alloc] initWithRootViewController:theViewController];
+	
+	return theNavigationController;
+}
+
+
+- (void)setupPortraitUserInterface
+{
+	// a local navigation variable
+	// this is reused several times
+	UINavigationController *localNavigationController;
+    
+    // Set up the portraitWindow and content view
+	UIWindow *localPortraitWindow;
+	localPortraitWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    portraitWindow = localPortraitWindow;    
+	
+    [portraitWindow setBackgroundColor:[UIColor blackColor]];
+    
+	// Create a tabbar controller and an array to contain the view controllers
+	tabBarController = [[UITabBarController alloc] init];
+	NSMutableArray *localViewControllersArray = [[NSMutableArray alloc] initWithCapacity:5];
+	
+	// setup the 4 view controllers for the different data representations
+	
+	// create the view controller and datasource for the ElementsSortedByNameDataSource
+	// wrap it in a UINavigationController, and add that navigationController to the
+	// viewControllersArray array
+    
+    //Chad, looks back at Elements.app to see how this used to look.
+	localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[UITableViewController class]];
+	[localViewControllersArray addObject:localNavigationController];	
+	
+	// repeat the process for the ElementsSortedByAtomicNumberDataSource
+	localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[UITableViewController class]];
+	[localViewControllersArray addObject:localNavigationController];
+	
+	
+	// repeat the process for the ElementsSortedBySymbolDataSource
+	localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[UITableViewController class]];
+	[localViewControllersArray addObject:localNavigationController];	
+	
+	// repeat the process for the ElementsSortedByStateDataSource
+	localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[UITableViewController class]];
+	[localViewControllersArray addObject:localNavigationController];
+    
+    // repeat the process for the ElementsSortedByStateDataSource
+	localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[UITableViewController class]];
+	[localViewControllersArray addObject:localNavigationController];
+	
+	// set the tab bar controller view controller array to the localViewControllersArray
+	tabBarController.viewControllers = localViewControllersArray;
+	
+	// set the window subview as the tab bar controller
+	[portraitWindow addSubview:tabBarController.view];
+	
+	// make the window visible
+	[portraitWindow makeKeyAndVisible];
+    
+    
+}
+
+- (void)applicationDidFinishLaunching:(UIApplication *)application
+{
+	// configure the portrait user interface
+	[self setupPortraitUserInterface];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
