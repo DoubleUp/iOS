@@ -7,6 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "FirstViewController.h"
+#import "SecondViewController.h"
+#import "ThirdViewController.h"
+#import "FourthViewController.h"
+#import "FifthViewController.h"
 
 @interface AppDelegate() <UIApplicationDelegate> //, UITabBarControllerDelegate>
 {
@@ -29,29 +34,9 @@
 	return self;
 }
 
-- (UINavigationController *)newNavigationControllerWrappingViewControllerForDataSourceOfClass:(Class)datasourceClass {
-	// this is entirely a convenience method to reduce the repetition of the code
-	// in the setupPortaitUserInterface
-	// it returns a retained instance of the UINavigationController class. This is unusual, but
-	// it is necessary to limit the autorelease use as much as possible.
-	
-	// for each tableview 'screen' we need to create a datasource instance (the class that is passed in)
-	// we then need to create an instance of ElementsTableViewController with that datasource instance
-	// finally we need to return a UINaviationController for each screen, with the ElementsTableViewController
-	// as the root view controller.
-	
-	// many of these require the temporary creation of objects that need to be released after they are configured
-	// and factoring this out makes the setup code much easier to follow, but you can still see the actual
-	// implementation here
-	
-	
-	// the class type for the datasource is not crucial, but that it implements the
-	// ElementsDataSource protocol and the UITableViewDataSource Protocol is.
-//	id<UITableViewDataSource> dataSource = [[datasourceClass alloc] init];
-	
-	// create the ElementsTableViewController and set the datasource
-	UITableViewController *theViewController;
-//	theViewController = [[UITableViewController alloc] initWithDataSource:dataSource];
+- (UINavigationController *)newNavigationControllerWrappingViewController:(Class)viewControllerClass
+{
+	UIViewController *theViewController = [[viewControllerClass alloc] init];
 	
 	// create the navigation controller with the view controller
 	UINavigationController *theNavigationController;
@@ -77,36 +62,31 @@
 	// Create a tabbar controller and an array to contain the view controllers
 	tabBarController = [[UITabBarController alloc] init];
 	NSMutableArray *localViewControllersArray = [[NSMutableArray alloc] initWithCapacity:5];
-	
-	// setup the 4 view controllers for the different data representations
-	
-	// create the view controller and datasource for the ElementsSortedByNameDataSource
-	// wrap it in a UINavigationController, and add that navigationController to the
-	// viewControllersArray array
     
     //Chad, looks back at Elements.app to see how this used to look.
-	localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[UITableViewController class]];
+	localNavigationController = [self newNavigationControllerWrappingViewController:[FirstViewController class]];
 	[localViewControllersArray addObject:localNavigationController];	
 	
 	// repeat the process for the ElementsSortedByAtomicNumberDataSource
-	localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[UITableViewController class]];
+	localNavigationController = [self newNavigationControllerWrappingViewController:[SecondViewController class]];
 	[localViewControllersArray addObject:localNavigationController];
 	
 	
 	// repeat the process for the ElementsSortedBySymbolDataSource
-	localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[UITableViewController class]];
+	localNavigationController = [self newNavigationControllerWrappingViewController:[ThirdViewController class]];
 	[localViewControllersArray addObject:localNavigationController];	
 	
 	// repeat the process for the ElementsSortedByStateDataSource
-	localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[UITableViewController class]];
+	localNavigationController = [self newNavigationControllerWrappingViewController:[FourthViewController class]];
 	[localViewControllersArray addObject:localNavigationController];
     
     // repeat the process for the ElementsSortedByStateDataSource
-	localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[UITableViewController class]];
+	localNavigationController = [self newNavigationControllerWrappingViewController:[FifthViewController class]];
 	[localViewControllersArray addObject:localNavigationController];
 	
 	// set the tab bar controller view controller array to the localViewControllersArray
 	tabBarController.viewControllers = localViewControllersArray;
+    portraitWindow.rootViewController = tabBarController;
 	
 	// set the window subview as the tab bar controller
 	[portraitWindow addSubview:tabBarController.view];
@@ -117,8 +97,71 @@
     
 }
 
+- (void)applyStylesheet
+{
+    // Tab bar
+    
+    UITabBar *tabBar = [UITabBar appearance];
+    [tabBar setTintColor:[UIColor orangeColor]];
+    
+    /*
+	// Navigation bar
+	UINavigationBar *navigationBar = [UINavigationBar appearance];
+	[navigationBar setBackgroundImage:[UIImage imageNamed:@"nav-background"] forBarMetrics:UIBarMetricsDefault];
+	[navigationBar setTitleVerticalPositionAdjustment:-1.0f forBarMetrics:UIBarMetricsDefault];
+	[navigationBar setTitleTextAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:
+										   [UIFont cheddarInterfaceFontOfSize:20.0f], UITextAttributeFont,
+										   [UIColor colorWithWhite:0.0f alpha:0.2f], UITextAttributeTextShadowColor,
+										   [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)], UITextAttributeTextShadowOffset,
+										   [UIColor whiteColor], UITextAttributeTextColor,
+										   nil]];
+	
+	// Navigation bar mini
+	[navigationBar setTitleVerticalPositionAdjustment:-2.0f forBarMetrics:UIBarMetricsLandscapePhone];
+	[navigationBar setBackgroundImage:[UIImage imageNamed:@"nav-background-mini"] forBarMetrics:UIBarMetricsLandscapePhone];
+	
+	// Navigation button
+	NSDictionary *barButtonTitleTextAttributes = [[NSDictionary alloc] initWithObjectsAndKeys:
+												  [UIFont cheddarInterfaceFontOfSize:14.0f], UITextAttributeFont,
+												  [UIColor colorWithWhite:0.0f alpha:0.2f], UITextAttributeTextShadowColor,
+												  [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)], UITextAttributeTextShadowOffset,
+												  nil];
+	UIBarButtonItem *barButton = [UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil];
+	//	[barButton setTitlePositionAdjustment:UIOffsetMake(0.0f, 1.0f) forBarMetrics:UIBarMetricsDefault];
+	[barButton setTitleTextAttributes:barButtonTitleTextAttributes forState:UIControlStateNormal];
+	[barButton setTitleTextAttributes:barButtonTitleTextAttributes forState:UIControlStateHighlighted];
+	[barButton setBackgroundImage:[[UIImage imageNamed:@"nav-button"] stretchableImageWithLeftCapWidth:6 topCapHeight:0] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+	[barButton setBackgroundImage:[[UIImage imageNamed:@"nav-button-highlighted"] stretchableImageWithLeftCapWidth:6 topCapHeight:0] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+	
+	// Navigation back button
+	[barButton setBackButtonTitlePositionAdjustment:UIOffsetMake(2.0f, -2.0f) forBarMetrics:UIBarMetricsDefault];
+	[barButton setBackButtonBackgroundImage:[[UIImage imageNamed:@"nav-back"] stretchableImageWithLeftCapWidth:13 topCapHeight:0] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+	[barButton setBackButtonBackgroundImage:[[UIImage imageNamed:@"nav-back-highlighted"] stretchableImageWithLeftCapWidth:13 topCapHeight:0] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+	
+	// Navigation button mini
+	//	[barButton setTitlePositionAdjustment:UIOffsetMake(0.0f, 1.0f) forBarMetrics:UIBarMetricsLandscapePhone];
+	[barButton setBackgroundImage:[[UIImage imageNamed:@"nav-button-mini"] stretchableImageWithLeftCapWidth:6 topCapHeight:0] forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
+	[barButton setBackgroundImage:[[UIImage imageNamed:@"nav-button-mini-highlighted"] stretchableImageWithLeftCapWidth:6 topCapHeight:0] forState:UIControlStateHighlighted barMetrics:UIBarMetricsLandscapePhone];
+	
+	// Navigation back button mini
+	[barButton setBackButtonTitlePositionAdjustment:UIOffsetMake(2.0f, -2.0f) forBarMetrics:UIBarMetricsLandscapePhone];
+	[barButton setBackButtonBackgroundImage:[[UIImage imageNamed:@"nav-back-mini"] stretchableImageWithLeftCapWidth:10 topCapHeight:0] forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
+	[barButton setBackButtonBackgroundImage:[[UIImage imageNamed:@"nav-back-mini-highlighted"] stretchableImageWithLeftCapWidth:10 topCapHeight:0] forState:UIControlStateHighlighted barMetrics:UIBarMetricsLandscapePhone];
+	
+	// Toolbar
+	UIToolbar *toolbar = [UIToolbar appearance];
+	[toolbar setBackgroundImage:[UIImage imageNamed:@"navigation-background"] forToolbarPosition:UIToolbarPositionTop barMetrics:UIBarMetricsDefault];
+	[toolbar setBackgroundImage:[UIImage imageNamed:@"toolbar-background"] forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
+	
+	// Toolbar mini
+	[toolbar setBackgroundImage:[UIImage imageNamed:@"navigation-background-mini"] forToolbarPosition:UIToolbarPositionTop barMetrics:UIBarMetricsLandscapePhone];
+	[toolbar setBackgroundImage:[UIImage imageNamed:@"toolbar-background-mini"] forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsLandscapePhone];
+     */
+}
+
 - (void)applicationDidFinishLaunching:(UIApplication *)application
 {
+    [self applyStylesheet];
 	// configure the portrait user interface
 	[self setupPortraitUserInterface];
 }

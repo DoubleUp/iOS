@@ -1,29 +1,29 @@
 //
-//  FirstViewController.m
+//  FifthViewController.m
 //  Wakeboard
 //
 //  Created by Chad Zeluff on 11/11/12.
 //  Copyright (c) 2012 Chad Zeluff. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "FifthViewController.h"
 
-@interface FirstViewController ()
+@interface FifthViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation FifthViewController
 
 - (id)init
 {
 	if (self = [super init])
     {
-        self.title = @"First";
-        self.tabBarItem.image = [UIImage imageNamed:@"first"];
+        self.title = @"Fifth";
+//        self.tabBarItem.image = [UIImage imageNamed:@"first"];
     }
     return self;
 }
-							
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
