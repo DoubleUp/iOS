@@ -18,8 +18,10 @@
 {
 	if (self = [super init])
     {
-        self.title = @"Fifth";
-//        self.tabBarItem.image = [UIImage imageNamed:@"first"];
+        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"nav-profile"] withFinishedUnselectedImage:[UIImage imageNamed:@"nav-profile"]];
+        int offset = 5;
+        UIEdgeInsets imageInset = UIEdgeInsetsMake(offset, 0, -offset, 0);
+        [self.tabBarItem setImageInsets:imageInset];
     }
     return self;
 }

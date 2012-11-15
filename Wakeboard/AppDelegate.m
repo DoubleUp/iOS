@@ -100,21 +100,22 @@
 - (void)applyStylesheet
 {
     // Tab bar
-    
     UITabBar *tabBar = [UITabBar appearance];
-    [tabBar setTintColor:[UIColor orangeColor]];
+    [tabBar setBackgroundImage:[UIImage imageWithColor:[UIColor dblUpOrangeColor]]];
+    [tabBar setSelectionIndicatorImage:[UIImage imageNamed:@"tabSelected"]];    
     
-    /*
 	// Navigation bar
 	UINavigationBar *navigationBar = [UINavigationBar appearance];
-	[navigationBar setBackgroundImage:[UIImage imageNamed:@"nav-background"] forBarMetrics:UIBarMetricsDefault];
-	[navigationBar setTitleVerticalPositionAdjustment:-1.0f forBarMetrics:UIBarMetricsDefault];
-	[navigationBar setTitleTextAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:
-										   [UIFont cheddarInterfaceFontOfSize:20.0f], UITextAttributeFont,
-										   [UIColor colorWithWhite:0.0f alpha:0.2f], UITextAttributeTextShadowColor,
-										   [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)], UITextAttributeTextShadowOffset,
-										   [UIColor whiteColor], UITextAttributeTextColor,
-										   nil]];
+	[navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forBarMetrics:UIBarMetricsDefault];
+//	[navigationBar setTitleVerticalPositionAdjustment:-1.0f forBarMetrics:UIBarMetricsDefault];
+//	[navigationBar setTitleTextAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:
+//										   [UIFont cheddarInterfaceFontOfSize:20.0f], UITextAttributeFont,
+//										   [UIColor colorWithWhite:0.0f alpha:0.2f], UITextAttributeTextShadowColor,
+//										   [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)], UITextAttributeTextShadowOffset,
+//										   [UIColor whiteColor], UITextAttributeTextColor,
+//										   nil]];
+    
+    /*
 	
 	// Navigation bar mini
 	[navigationBar setTitleVerticalPositionAdjustment:-2.0f forBarMetrics:UIBarMetricsLandscapePhone];

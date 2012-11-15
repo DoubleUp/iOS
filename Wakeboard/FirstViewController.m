@@ -18,8 +18,10 @@
 {
 	if (self = [super init])
     {
-        self.title = @"First";
-        self.tabBarItem.image = [UIImage imageNamed:@"first"];
+        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"nav-home"] withFinishedUnselectedImage:[UIImage imageNamed:@"nav-home"]];
+        int offset = 5;
+        UIEdgeInsets imageInset = UIEdgeInsetsMake(offset, 0, -offset, 0);
+        [self.tabBarItem setImageInsets:imageInset];
     }
     return self;
 }
