@@ -107,13 +107,13 @@
 	// Navigation bar
 	UINavigationBar *navigationBar = [UINavigationBar appearance];
 	[navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forBarMetrics:UIBarMetricsDefault];
-//	[navigationBar setTitleVerticalPositionAdjustment:-1.0f forBarMetrics:UIBarMetricsDefault];
-//	[navigationBar setTitleTextAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:
-//										   [UIFont cheddarInterfaceFontOfSize:20.0f], UITextAttributeFont,
-//										   [UIColor colorWithWhite:0.0f alpha:0.2f], UITextAttributeTextShadowColor,
-//										   [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)], UITextAttributeTextShadowOffset,
-//										   [UIColor whiteColor], UITextAttributeTextColor,
-//										   nil]];
+	[navigationBar setTitleVerticalPositionAdjustment:-1.0f forBarMetrics:UIBarMetricsDefault];
+	[navigationBar setTitleTextAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:
+										   [UIFont boldFontOfSize:18.0f], UITextAttributeFont,
+										   [UIColor clearColor], UITextAttributeTextShadowColor,
+										   [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)], UITextAttributeTextShadowOffset,
+										   [UIColor dblUpOrangeColor], UITextAttributeTextColor,
+										   nil]];
     
     /*
 	
