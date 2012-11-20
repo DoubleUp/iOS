@@ -112,7 +112,7 @@
 										   [UIFont boldFontOfSize:18.0f], UITextAttributeFont,
 										   [UIColor clearColor], UITextAttributeTextShadowColor,
 										   [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)], UITextAttributeTextShadowOffset,
-										   [UIColor dblUpOrangeColor], UITextAttributeTextColor,
+										   [UIColor dblUpBlackColor], UITextAttributeTextColor,
 										   nil]];
     
     /*
