@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  ThirdViewController.h
 //  Wakeboard
 //
 //  Created by Chad Zeluff on 11/11/12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder
+@interface ThirdViewController : UIViewController
 
 @end

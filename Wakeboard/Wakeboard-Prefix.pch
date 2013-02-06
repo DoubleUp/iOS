@@ -12,3 +12,8 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#import "UIColor+Additions.h"
+#import "UIFont+Additions.h"
+#import "UIImage+Additions.h"
+#import "UILabel+Additions.h"

@@ -7,24 +7,164 @@
 //
 
 #import "AppDelegate.h"
-
 #import "FirstViewController.h"
-
 #import "SecondViewController.h"
+#import "ThirdViewController.h"
+#import "FourthViewController.h"
+#import "FifthViewController.h"
+
+@interface AppDelegate() <UIApplicationDelegate> //, UITabBarControllerDelegate>
+{
+    UIWindow *portraitWindow;
+    UITabBarController *tabBarController;
+}
+
+@end
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- init
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    UIViewController *viewController1 = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
-    UIViewController *viewController2 = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
-    self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[viewController1, viewController2];
-    self.window.rootViewController = self.tabBarController;
-    [self.window makeKeyAndVisible];
-    return YES;
+	if (self = [super init])
+    {
+		// initialize  to nil
+		portraitWindow = nil;
+		tabBarController = nil;
+	}
+	return self;
+}
+
+- (UINavigationController *)newNavigationControllerWrappingViewController:(Class)viewControllerClass
+{
+	UIViewController *theViewController = [[viewControllerClass alloc] init];
+	
+	// create the navigation controller with the view controller
+	UINavigationController *theNavigationController;
+	theNavigationController = [[UINavigationController alloc] initWithRootViewController:theViewController];
+	
+	return theNavigationController;
+}
+
+
+- (void)setupPortraitUserInterface
+{
+	// a local navigation variable
+	// this is reused several times
+	UINavigationController *localNavigationController;
+    
+    // Set up the portraitWindow and content view
+	UIWindow *localPortraitWindow;
+	localPortraitWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    portraitWindow = localPortraitWindow;    
+	
+    [portraitWindow setBackgroundColor:[UIColor blackColor]];
+    
+	// Create a tabbar controller and an array to contain the view controllers
+	tabBarController = [[UITabBarController alloc] init];
+	NSMutableArray *localViewControllersArray = [[NSMutableArray alloc] initWithCapacity:5];
+    
+    //Chad, looks back at Elements.app to see how this used to look.
+	localNavigationController = [self newNavigationControllerWrappingViewController:[FirstViewController class]];
+	[localViewControllersArray addObject:localNavigationController];	
+	
+	// repeat the process for the ElementsSortedByAtomicNumberDataSource
+	localNavigationController = [self newNavigationControllerWrappingViewController:[SecondViewController class]];
+	[localViewControllersArray addObject:localNavigationController];
+	
+	
+	// repeat the process for the ElementsSortedBySymbolDataSource
+	localNavigationController = [self newNavigationControllerWrappingViewController:[ThirdViewController class]];
+	[localViewControllersArray addObject:localNavigationController];	
+	
+	// repeat the process for the ElementsSortedByStateDataSource
+	localNavigationController = [self newNavigationControllerWrappingViewController:[FourthViewController class]];
+	[localViewControllersArray addObject:localNavigationController];
+    
+    // repeat the process for the ElementsSortedByStateDataSource
+	localNavigationController = [self newNavigationControllerWrappingViewController:[FifthViewController class]];
+	[localViewControllersArray addObject:localNavigationController];
+	
+	// set the tab bar controller view controller array to the localViewControllersArray
+	tabBarController.viewControllers = localViewControllersArray;
+    portraitWindow.rootViewController = tabBarController;
+	
+	// set the window subview as the tab bar controller
+	[portraitWindow addSubview:tabBarController.view];
+	
+	// make the window visible
+	[portraitWindow makeKeyAndVisible];
+    
+    
+}
+
+- (void)applyStylesheet
+{
+    // Tab bar
+    UITabBar *tabBar = [UITabBar appearance];
+    [tabBar setBackgroundImage:[UIImage imageWithColor:[UIColor dblUpOrangeColor]]];
+    [tabBar setSelectionIndicatorImage:[UIImage imageNamed:@"tabSelected"]];    
+    
+	// Navigation bar
+	UINavigationBar *navigationBar = [UINavigationBar appearance];
+	[navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forBarMetrics:UIBarMetricsDefault];
+	[navigationBar setTitleVerticalPositionAdjustment:-1.0f forBarMetrics:UIBarMetricsDefault];
+	[navigationBar setTitleTextAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:
+										   [UIFont boldFontOfSize:18.0f], UITextAttributeFont,
+										   [UIColor clearColor], UITextAttributeTextShadowColor,
+										   [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)], UITextAttributeTextShadowOffset,
+										   [UIColor dblUpBlackColor], UITextAttributeTextColor,
+										   nil]];
+    
+    /*
+	
+	// Navigation bar mini
+	[navigationBar setTitleVerticalPositionAdjustment:-2.0f forBarMetrics:UIBarMetricsLandscapePhone];
+	[navigationBar setBackgroundImage:[UIImage imageNamed:@"nav-background-mini"] forBarMetrics:UIBarMetricsLandscapePhone];
+	
+	// Navigation button
+	NSDictionary *barButtonTitleTextAttributes = [[NSDictionary alloc] initWithObjectsAndKeys:
+												  [UIFont cheddarInterfaceFontOfSize:14.0f], UITextAttributeFont,
+												  [UIColor colorWithWhite:0.0f alpha:0.2f], UITextAttributeTextShadowColor,
+												  [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)], UITextAttributeTextShadowOffset,
+												  nil];
+	UIBarButtonItem *barButton = [UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil];
+	//	[barButton setTitlePositionAdjustment:UIOffsetMake(0.0f, 1.0f) forBarMetrics:UIBarMetricsDefault];
+	[barButton setTitleTextAttributes:barButtonTitleTextAttributes forState:UIControlStateNormal];
+	[barButton setTitleTextAttributes:barButtonTitleTextAttributes forState:UIControlStateHighlighted];
+	[barButton setBackgroundImage:[[UIImage imageNamed:@"nav-button"] stretchableImageWithLeftCapWidth:6 topCapHeight:0] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+	[barButton setBackgroundImage:[[UIImage imageNamed:@"nav-button-highlighted"] stretchableImageWithLeftCapWidth:6 topCapHeight:0] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+	
+	// Navigation back button
+	[barButton setBackButtonTitlePositionAdjustment:UIOffsetMake(2.0f, -2.0f) forBarMetrics:UIBarMetricsDefault];
+	[barButton setBackButtonBackgroundImage:[[UIImage imageNamed:@"nav-back"] stretchableImageWithLeftCapWidth:13 topCapHeight:0] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+	[barButton setBackButtonBackgroundImage:[[UIImage imageNamed:@"nav-back-highlighted"] stretchableImageWithLeftCapWidth:13 topCapHeight:0] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+	
+	// Navigation button mini
+	//	[barButton setTitlePositionAdjustment:UIOffsetMake(0.0f, 1.0f) forBarMetrics:UIBarMetricsLandscapePhone];
+	[barButton setBackgroundImage:[[UIImage imageNamed:@"nav-button-mini"] stretchableImageWithLeftCapWidth:6 topCapHeight:0] forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
+	[barButton setBackgroundImage:[[UIImage imageNamed:@"nav-button-mini-highlighted"] stretchableImageWithLeftCapWidth:6 topCapHeight:0] forState:UIControlStateHighlighted barMetrics:UIBarMetricsLandscapePhone];
+	
+	// Navigation back button mini
+	[barButton setBackButtonTitlePositionAdjustment:UIOffsetMake(2.0f, -2.0f) forBarMetrics:UIBarMetricsLandscapePhone];
+	[barButton setBackButtonBackgroundImage:[[UIImage imageNamed:@"nav-back-mini"] stretchableImageWithLeftCapWidth:10 topCapHeight:0] forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
+	[barButton setBackButtonBackgroundImage:[[UIImage imageNamed:@"nav-back-mini-highlighted"] stretchableImageWithLeftCapWidth:10 topCapHeight:0] forState:UIControlStateHighlighted barMetrics:UIBarMetricsLandscapePhone];
+	
+	// Toolbar
+	UIToolbar *toolbar = [UIToolbar appearance];
+	[toolbar setBackgroundImage:[UIImage imageNamed:@"navigation-background"] forToolbarPosition:UIToolbarPositionTop barMetrics:UIBarMetricsDefault];
+	[toolbar setBackgroundImage:[UIImage imageNamed:@"toolbar-background"] forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
+	
+	// Toolbar mini
+	[toolbar setBackgroundImage:[UIImage imageNamed:@"navigation-background-mini"] forToolbarPosition:UIToolbarPositionTop barMetrics:UIBarMetricsLandscapePhone];
+	[toolbar setBackgroundImage:[UIImage imageNamed:@"toolbar-background-mini"] forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsLandscapePhone];
+     */
+}
+
+- (void)applicationDidFinishLaunching:(UIApplication *)application
+{
+    [self applyStylesheet];
+	// configure the portrait user interface
+	[self setupPortraitUserInterface];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
