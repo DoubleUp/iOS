@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>posts</key>
+	<array>
+		<dict>
+			<key>riderName</key>
+			<string>Jake Lowder</string>
+			<key>trickTitle</key>
+			<string>Switch Tantrum to blind</string>
+			<key>locationName</key>
+			<string>Lake Powell</string>
+			<key>wasDoubleUp</key>
+			<true/>
+			<key>photoFile</key>
+			<string>trickPhoto.png</string>
+			<key>avatarFile</key>
+			<string>Avatar-Home.png</string>
+			<key>vouchers</key>
+			<array>
+				<string>cole wads</string>
+				<string>czeluff</string>
+			</array>
+			<key>comments</key>
+			<array>
+				<dict>
+					<key>commentor</key>
+					<string>Awally</string>
+					<key>comment</key>
+					<string>Jake you are the sickest cat I know</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>riderName</key>
+			<string>Jake Lowder</string>
+			<key>trickTitle</key>
+			<string>Switch Tantrum to blind</string>
+			<key>locationName</key>
+			<string>Lake Powell</string>
+			<key>wasDoubleUp</key>
+			<false/>
+			<key>avatarFile</key>
+			<string>Avatar-Home.png</string>
+			<key>vouchers</key>
+			<array>
+				<string>cole wads</string>
+				<string>czeluff</string>
+			</array>
+			<key>comments</key>
+			<array>
+				<dict>
+					<key>commentor</key>
+					<string>Awally</string>
+					<key>comment</key>
+					<string>Jake you are the sickest cat I know</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>riderName</key>
+			<string>Jake Lowder</string>
+			<key>trickTitle</key>
+			<string>Switch Tantrum to blind</string>
+			<key>locationName</key>
+			<string>Lake Powell</string>
+			<key>wasDoubleUp</key>
+			<true/>
+			<key>avatarFile</key>
+			<string>Avatar-Home.png</string>
+			<key>vouchers</key>
+			<array>
+				<string>cole wads</string>
+				<string>czeluff</string>
+			</array>
+			<key>comments</key>
+			<array>
+				<dict>
+					<key>commentor</key>
+					<string>Awally</string>
+					<key>comment</key>
+					<string>Jake you are the sickest cat I know</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
