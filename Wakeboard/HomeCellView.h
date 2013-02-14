@@ -11,7 +11,6 @@
 @interface HomeCellView : UIView
 
 @property (strong, nonatomic) NSDictionary *cellDictionary;
-@property (readonly) CGFloat cellHeight;
 
 + (CGFloat)heightForDictionary:(NSDictionary*)dictionary;
 

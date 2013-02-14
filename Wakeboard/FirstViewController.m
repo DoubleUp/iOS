@@ -59,7 +59,8 @@
 {
     if(_homeTableView == nil)
     {
-        _homeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 80 /*- self.tabBarController.view.frame.size.height*/) style:UITableViewStylePlain];
+        CGFloat tableViewHeight = self.view.bounds.size.height - self.tabBarController.tabBar.bounds.size.height - self.navigationController.navigationBar.bounds.size.height;
+        _homeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, tableViewHeight) style:UITableViewStylePlain];
         _homeTableView.dataSource = self;
         _homeTableView.delegate = self;
         _homeTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -111,7 +112,6 @@
     NSDictionary *cellDictionary = [self.posts objectAtIndex:indexPath.row];
     CGFloat height = [HomeCellView heightForDictionary:cellDictionary];
     return height;
-    //return CELL_HEIGHT + 50;
 }
 
 @end

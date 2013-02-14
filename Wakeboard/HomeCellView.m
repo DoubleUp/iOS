@@ -44,7 +44,7 @@
         self.riderLabel = [UILabel blackRegularLabelWithSize:bigLabelSize];
         [self addSubview:self.riderLabel];
         
-        self.locationLabel = [UILabel lightGreyRegularLabelWithSize:bigLabelSize];
+        self.locationLabel = [UILabel lightGreyRegularLabelWithSize:smallLabelSize];
         [self addSubview:self.locationLabel];
         
         self.trickLabel = [UILabel orangeRegularLabelWithSize:bigLabelSize];
@@ -91,7 +91,7 @@
 
 -(void)updateCellView
 {
-    CGFloat yPos = CELL_MARGIN;
+    CGFloat yPos = 2*CELL_MARGIN - 5;
     CGFloat labelHeight = 15.0;
     CGFloat labelMargin = 4;
     
@@ -109,9 +109,9 @@
     [self.riderLabel sizeToFit];
     
     //Location icon and title
-    yPos += labelHeight + 7;
+    yPos += labelHeight + 10;
     
-    self.locationIcon.frame = CGRectMake(titleXPos, yPos + 5, self.locationIcon.frame.size.width, self.locationIcon.frame.size.height);
+    self.locationIcon.frame = CGRectMake(titleXPos, yPos + 2, self.locationIcon.frame.size.width, self.locationIcon.frame.size.height);
     
     self.locationLabel.text = [self.cellDictionary objectForKey:@"locationName"];
     self.locationLabel.frame = CGRectMake(titleXPos + self.locationIcon.frame.size.width + labelMargin, yPos, 200.0, labelHeight);
@@ -120,7 +120,7 @@
     
     yPos += 35;
     
-    //?? trick photo here
+    //trick photo
     self.trickPhoto.hidden = YES;
     if([self.cellDictionary objectForKey:@"photoFile"])
     {
@@ -138,7 +138,7 @@
     
     if([[self.cellDictionary objectForKey:@"wasDoubleUp"] boolValue])
     {
-        self.doubleUpLabel.text = @"off a double up";
+        self.doubleUpLabel.text = @"off a double up.";
         self.doubleUpLabel.frame = CGRectMake(CELL_MARGIN + self.trickLabel.frame.size.width + labelMargin, yPos, 200.0, labelHeight);
         self.doubleUpLabel.textAlignment = NSTextAlignmentLeft;
         [self.doubleUpLabel sizeToFit];
@@ -206,20 +206,20 @@
         self.commentLabel.hidden = YES;
     }
     
-    yPos += 40;
+    yPos += labelHeight + 2*CELL_MARGIN;
     
-    self.separator.frame = CGRectMake(0, yPos/*CELL_HEIGHT - self.separator.frame.size.height*/, self.frame.size.width, self.separator.frame.size.height);
+    self.separator.frame = CGRectMake(0, yPos, self.frame.size.width, self.separator.frame.size.height);
 
-    _cellHeight = yPos + self.separator.frame.size.height;
 }
 
 + (CGFloat)heightForDictionary:(NSDictionary*)dictionary
 {
-    CGFloat yPos = CELL_MARGIN;
+    //?? this is copied from the function above. This really needs to be done in one function if possible
+    CGFloat yPos = 2*CELL_MARGIN - 5;
     CGFloat labelHeight = 15.0;
     
     yPos += 3;
-    yPos += labelHeight + 7;
+    yPos += labelHeight + 10;
     yPos += 35;
     
     if([dictionary objectForKey:@"photoFile"])
@@ -242,10 +242,7 @@
             yPos += 15;
     }
     
-    yPos += 40;
-    
-    UIImage* separator = [UIImage imageNamed:[dictionary objectForKey:@"dottedLine"]];
-    yPos += separator.size.height;
+    yPos += labelHeight + 2*CELL_MARGIN;
     
     return yPos;
 }

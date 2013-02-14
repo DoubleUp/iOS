@@ -6,29 +6,30 @@
 	<array>
 		<dict>
 			<key>riderName</key>
-			<string>Jake Lowder</string>
+			<string>Colton Brockbank</string>
 			<key>trickTitle</key>
-			<string>Switch Tantrum to blind</string>
+			<string>BS 540</string>
 			<key>locationName</key>
-			<string>Lake Powell</string>
+			<string>ROCKPORT STATE PARK</string>
 			<key>wasDoubleUp</key>
 			<true/>
 			<key>photoFile</key>
 			<string>trickPhoto.png</string>
 			<key>avatarFile</key>
-			<string>Avatar-Home.png</string>
+			<string>Avatar-Home-3.png</string>
 			<key>vouchers</key>
 			<array>
-				<string>cole wads</string>
+				<string>bsimkins</string>
+				<string>cublowder</string>
 				<string>czeluff</string>
 			</array>
 			<key>comments</key>
 			<array>
 				<dict>
 					<key>commentor</key>
-					<string>Awally</string>
+					<string>bsimkins</string>
 					<key>comment</key>
-					<string>Jake you are the sickest cat I know</string>
+					<string>dude you are my hero.</string>
 				</dict>
 			</array>
 		</dict>
@@ -38,33 +39,7 @@
 			<key>trickTitle</key>
 			<string>Switch Tantrum to blind</string>
 			<key>locationName</key>
-			<string>Lake Powell</string>
-			<key>wasDoubleUp</key>
-			<false/>
-			<key>avatarFile</key>
-			<string>Avatar-Home.png</string>
-			<key>vouchers</key>
-			<array>
-				<string>cole wads</string>
-				<string>czeluff</string>
-			</array>
-			<key>comments</key>
-			<array>
-				<dict>
-					<key>commentor</key>
-					<string>Awally</string>
-					<key>comment</key>
-					<string>Jake you are the sickest cat I know</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>riderName</key>
-			<string>Jake Lowder</string>
-			<key>trickTitle</key>
-			<string>Switch Tantrum to blind</string>
-			<key>locationName</key>
-			<string>Lake Powell</string>
+			<string>LAKE POWELL</string>
 			<key>wasDoubleUp</key>
 			<true/>
 			<key>avatarFile</key>
@@ -80,7 +55,32 @@
 					<key>commentor</key>
 					<string>Awally</string>
 					<key>comment</key>
-					<string>Jake you are the sickest cat I know</string>
+					<string>Jake you are the sickest cat I know.</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>riderName</key>
+			<string>Cole Wadsworth</string>
+			<key>trickTitle</key>
+			<string>Switch Tantrum to blind</string>
+			<key>locationName</key>
+			<string>LAKE POWELL</string>
+			<key>wasDoubleUp</key>
+			<true/>
+			<key>avatarFile</key>
+			<string>Avatar-Home-2.png</string>
+			<key>vouchers</key>
+			<array>
+				<string>bsimkins</string>
+			</array>
+			<key>comments</key>
+			<array>
+				<dict>
+					<key>commentor</key>
+					<string>czeluff</string>
+					<key>comment</key>
+					<string>so buttery</string>
 				</dict>
 			</array>
 		</dict>

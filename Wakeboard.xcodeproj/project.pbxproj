@@ -12,6 +12,10 @@
 		3C0044AA16C856AE00F1069A /* Avatar-Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C0044A816C856AE00F1069A /* Avatar-Home@2x.png */; };
 		3C8E42EF16CCD03B0058B132 /* trickPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C8E42ED16CCD03B0058B132 /* trickPhoto.png */; };
 		3C8E42F016CCD03B0058B132 /* trickPhoto@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C8E42EE16CCD03B0058B132 /* trickPhoto@2x.png */; };
+		3C8E42F516CCE7F90058B132 /* Avatar-Home-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C8E42F116CCE7F90058B132 /* Avatar-Home-2.png */; };
+		3C8E42F616CCE7F90058B132 /* Avatar-Home-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C8E42F216CCE7F90058B132 /* Avatar-Home-2@2x.png */; };
+		3C8E42F716CCE7F90058B132 /* Avatar-Home-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C8E42F316CCE7F90058B132 /* Avatar-Home-3.png */; };
+		3C8E42F816CCE7F90058B132 /* Avatar-Home-3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C8E42F416CCE7F90058B132 /* Avatar-Home-3@2x.png */; };
 		3CE126C116CA062F0014FCC2 /* HomeCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE126C016CA062F0014FCC2 /* HomeCellView.m */; };
 		3CE320DE16CA1F850088F9B7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE320DD16CA1F850088F9B7 /* CoreData.framework */; };
 		BE37B90316560556001D46F0 /* dotted-line.png in Resources */ = {isa = PBXBuildFile; fileRef = BE37B8E716560556001D46F0 /* dotted-line.png */; };
@@ -82,6 +86,10 @@
 		3C0044A816C856AE00F1069A /* Avatar-Home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Avatar-Home@2x.png"; sourceTree = "<group>"; };
 		3C8E42ED16CCD03B0058B132 /* trickPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trickPhoto.png; sourceTree = "<group>"; };
 		3C8E42EE16CCD03B0058B132 /* trickPhoto@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trickPhoto@2x.png"; sourceTree = "<group>"; };
+		3C8E42F116CCE7F90058B132 /* Avatar-Home-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Avatar-Home-2.png"; sourceTree = "<group>"; };
+		3C8E42F216CCE7F90058B132 /* Avatar-Home-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Avatar-Home-2@2x.png"; sourceTree = "<group>"; };
+		3C8E42F316CCE7F90058B132 /* Avatar-Home-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Avatar-Home-3.png"; sourceTree = "<group>"; };
+		3C8E42F416CCE7F90058B132 /* Avatar-Home-3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Avatar-Home-3@2x.png"; sourceTree = "<group>"; };
 		3CE126BF16CA062F0014FCC2 /* HomeCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCellView.h; sourceTree = "<group>"; };
 		3CE126C016CA062F0014FCC2 /* HomeCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCellView.m; sourceTree = "<group>"; };
 		3CE320DD16CA1F850088F9B7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -204,6 +212,10 @@
 		BE390D981650991900C0CC09 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3C8E42F116CCE7F90058B132 /* Avatar-Home-2.png */,
+				3C8E42F216CCE7F90058B132 /* Avatar-Home-2@2x.png */,
+				3C8E42F316CCE7F90058B132 /* Avatar-Home-3.png */,
+				3C8E42F416CCE7F90058B132 /* Avatar-Home-3@2x.png */,
 				3C8E42ED16CCD03B0058B132 /* trickPhoto.png */,
 				3C8E42EE16CCD03B0058B132 /* trickPhoto@2x.png */,
 				3C0044A716C856AD00F1069A /* Avatar-Home.png */,
@@ -428,6 +440,10 @@
 				3C0044AA16C856AE00F1069A /* Avatar-Home@2x.png in Resources */,
 				3C8E42EF16CCD03B0058B132 /* trickPhoto.png in Resources */,
 				3C8E42F016CCD03B0058B132 /* trickPhoto@2x.png in Resources */,
+				3C8E42F516CCE7F90058B132 /* Avatar-Home-2.png in Resources */,
+				3C8E42F616CCE7F90058B132 /* Avatar-Home-2@2x.png in Resources */,
+				3C8E42F716CCE7F90058B132 /* Avatar-Home-3.png in Resources */,
+				3C8E42F816CCE7F90058B132 /* Avatar-Home-3@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
