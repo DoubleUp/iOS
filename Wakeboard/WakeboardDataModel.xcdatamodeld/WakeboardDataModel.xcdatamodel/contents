@@ -1,42 +1,72 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C3006" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Comment" syncable="YES">
+    <entity name="Comment" representedClassName="Comment" syncable="YES">
         <attribute name="text" attributeType="String" syncable="YES"/>
-        <relationship name="commenter" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Rider" inverseName="commentedTricks" inverseEntity="Rider" syncable="YES"/>
+        <relationship name="commenter" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UserProfile" inverseName="comments" inverseEntity="UserProfile" syncable="YES"/>
         <relationship name="trickPost" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TrickPost" inverseName="comments" inverseEntity="TrickPost" syncable="YES"/>
     </entity>
-    <entity name="Lake" syncable="YES">
-        <attribute name="coordinates" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="newRelationship" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TrickPost" inverseName="whichLake" inverseEntity="TrickPost" syncable="YES"/>
+    <entity name="Image" representedClassName="Image" syncable="YES">
+        <attribute name="imageData" attributeType="Binary" syncable="YES"/>
+        <relationship name="avatarForUser" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UserProfile" inverseName="avatar" inverseEntity="UserProfile" syncable="YES"/>
+        <relationship name="trickPost" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TrickPost" inverseName="trickImage" inverseEntity="TrickPost" syncable="YES"/>
     </entity>
-    <entity name="Rider" syncable="YES">
-        <attribute name="avatarFile" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="maxCoordinates" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="minCooordinates" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="commentedTricks" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Comment" inverseName="commenter" inverseEntity="Comment" syncable="YES"/>
-        <relationship name="trickPosts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TrickPost" inverseName="whoDidTrick" inverseEntity="TrickPost" syncable="YES"/>
-        <relationship name="vouchedTricks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TrickPost" inverseName="whoVouchedTrick" inverseEntity="TrickPost" syncable="YES"/>
+        <relationship name="sports" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sport" inverseName="locations" inverseEntity="Sport" syncable="YES"/>
+        <relationship name="trickPosts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TrickPost" inverseName="whichLocation" inverseEntity="TrickPost" syncable="YES"/>
     </entity>
-    <entity name="Trick" syncable="YES">
-        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="Movie" representedClassName="Movie" syncable="YES">
+        <attribute name="url" attributeType="String" syncable="YES"/>
+        <relationship name="trickPost" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TrickPost" inverseName="trickMovie" inverseEntity="TrickPost" syncable="YES"/>
+    </entity>
+    <entity name="Sport" representedClassName="Sport" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="trickPost" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TrickPost" inverseName="trickType" inverseEntity="TrickPost" syncable="YES"/>
+        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location" inverseName="sports" inverseEntity="Location" syncable="YES"/>
+        <relationship name="trickPosts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TrickPost" inverseName="trickSport" inverseEntity="TrickPost" syncable="YES"/>
+        <relationship name="trickTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TrickType" inverseName="sports" inverseEntity="TrickType" syncable="YES"/>
+        <relationship name="whoFollows" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UserProfile" inverseName="sports" inverseEntity="UserProfile" syncable="YES"/>
     </entity>
-    <entity name="TrickPost" syncable="YES">
+    <entity name="TrickPost" representedClassName="TrickPost" syncable="YES">
         <attribute name="doubleUp" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="imageFile" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" attributeType="Date" syncable="YES"/>
         <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="trickPost" inverseEntity="Comment" syncable="YES"/>
-        <relationship name="trickType" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Trick" inverseName="trickPost" inverseEntity="Trick" syncable="YES"/>
-        <relationship name="whichLake" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Lake" inverseName="newRelationship" inverseEntity="Lake" syncable="YES"/>
-        <relationship name="whoDidTrick" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Rider" inverseName="trickPosts" inverseEntity="Rider" syncable="YES"/>
-        <relationship name="whoVouchedTrick" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Rider" inverseName="vouchedTricks" inverseEntity="Rider" syncable="YES"/>
+        <relationship name="trickImage" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="trickPost" inverseEntity="Image" syncable="YES"/>
+        <relationship name="trickMovie" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Movie" inverseName="trickPost" inverseEntity="Movie" syncable="YES"/>
+        <relationship name="trickSport" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Sport" inverseName="trickPosts" inverseEntity="Sport" syncable="YES"/>
+        <relationship name="trickType" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TrickType" inverseName="trickPosts" inverseEntity="TrickType" syncable="YES"/>
+        <relationship name="whichLocation" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="trickPosts" inverseEntity="Location" syncable="YES"/>
+        <relationship name="whoDidTrick" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UserProfile" inverseName="trickPosts" inverseEntity="UserProfile" syncable="YES"/>
+        <relationship name="whoVouchedTrick" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserProfile" inverseName="vouchedTricks" inverseEntity="UserProfile" syncable="YES"/>
+    </entity>
+    <entity name="TrickType" representedClassName="TrickType" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="sports" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sport" inverseName="trickTypes" inverseEntity="Sport" syncable="YES"/>
+        <relationship name="trickPosts" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TrickPost" inverseName="trickType" inverseEntity="TrickPost" syncable="YES"/>
+        <relationship name="whoAccomplished" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UserProfile" inverseName="accomplishedTricks" inverseEntity="UserProfile" syncable="YES"/>
+    </entity>
+    <entity name="UserProfile" representedClassName="UserProfile" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="accomplishedTricks" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TrickType" inverseName="whoAccomplished" inverseEntity="TrickType" syncable="YES"/>
+        <relationship name="avatar" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="avatarForUser" inverseEntity="Image" syncable="YES"/>
+        <relationship name="comments" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Comment" inverseName="commenter" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="sports" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Sport" inverseName="whoFollows" inverseEntity="Sport" syncable="YES"/>
+        <relationship name="trickPosts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TrickPost" inverseName="whoDidTrick" inverseEntity="TrickPost" syncable="YES"/>
+        <relationship name="vouchedTricks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TrickPost" inverseName="whoVouchedTrick" inverseEntity="TrickPost" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Rider" positionX="-2799" positionY="-4824" width="128" height="118"/>
-        <element name="Trick" positionX="-2592" positionY="-5040" width="128" height="88"/>
-        <element name="TrickPost" positionX="-3051" positionY="-4986" width="128" height="163"/>
-        <element name="Comment" positionX="-2799" positionY="-5155" width="128" height="88"/>
-        <element name="Lake" positionX="-2594" positionY="-4932" width="128" height="88"/>
+        <element name="Comment" positionX="-3240" positionY="-4851" width="128" height="88"/>
+        <element name="Location" positionX="-2655" positionY="-4986" width="128" height="118"/>
+        <element name="UserProfile" positionX="-2837" positionY="-4797" width="128" height="178"/>
+        <element name="TrickType" positionX="-3098" positionY="-5233" width="128" height="118"/>
+        <element name="TrickPost" positionX="-3429" positionY="-5112" width="128" height="208"/>
+        <element name="Sport" positionX="-2828" positionY="-5166" width="128" height="118"/>
+        <element name="Image" positionX="-3240" positionY="-4725" width="128" height="88"/>
+        <element name="Movie" positionX="-3240" positionY="-4608" width="128" height="73"/>
     </elements>
 </model>

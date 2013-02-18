@@ -11,8 +11,8 @@
 
 #define HOME_CELL_VIEW_TAG  1
 
-#define CELL_MARGIN         10
-#define CELL_HEIGHT         150
+//#define CELL_MARGIN         10
+//#define CELL_HEIGHT         150
 
 @interface FirstViewController ()
 
