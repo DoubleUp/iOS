@@ -27,6 +27,8 @@
 		3C8E445C16D1F9950058B132 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8E445B16D1F9950058B132 /* Location.m */; };
 		3CE126C116CA062F0014FCC2 /* HomeCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE126C016CA062F0014FCC2 /* HomeCellView.m */; };
 		3CE320DE16CA1F850088F9B7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE320DD16CA1F850088F9B7 /* CoreData.framework */; };
+		3CFDC74216D4A1DF000C7A22 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFDC74116D4A1DF000C7A22 /* libTestFlight.a */; };
+		3CFDC74416D4A287000C7A22 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFDC74316D4A287000C7A22 /* libz.dylib */; };
 		BE37B90316560556001D46F0 /* dotted-line.png in Resources */ = {isa = PBXBuildFile; fileRef = BE37B8E716560556001D46F0 /* dotted-line.png */; };
 		BE37B90416560556001D46F0 /* dotted-line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE37B8E816560556001D46F0 /* dotted-line@2x.png */; };
 		BE37B90516560556001D46F0 /* icon-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = BE37B8E916560556001D46F0 /* icon-arrow.png */; };
@@ -119,6 +121,9 @@
 		3CE126BF16CA062F0014FCC2 /* HomeCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCellView.h; sourceTree = "<group>"; };
 		3CE126C016CA062F0014FCC2 /* HomeCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCellView.m; sourceTree = "<group>"; };
 		3CE320DD16CA1F850088F9B7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3CFDC74016D4A1DF000C7A22 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestFlight.h; path = ../TestFlight.h; sourceTree = "<group>"; };
+		3CFDC74116D4A1DF000C7A22 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		3CFDC74316D4A287000C7A22 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BE37B8E716560556001D46F0 /* dotted-line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dotted-line.png"; sourceTree = "<group>"; };
 		BE37B8E816560556001D46F0 /* dotted-line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dotted-line@2x.png"; sourceTree = "<group>"; };
 		BE37B8E916560556001D46F0 /* icon-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-arrow.png"; sourceTree = "<group>"; };
@@ -199,10 +204,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CFDC74416D4A287000C7A22 /* libz.dylib in Frameworks */,
 				3CE320DE16CA1F850088F9B7 /* CoreData.framework in Frameworks */,
 				BEB4587E165090A3001EC588 /* UIKit.framework in Frameworks */,
 				BEB45880165090A3001EC588 /* Foundation.framework in Frameworks */,
 				BEB45882165090A3001EC588 /* CoreGraphics.framework in Frameworks */,
+				3CFDC74216D4A1DF000C7A22 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +360,8 @@
 		BEB4587C165090A3001EC588 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3CFDC74316D4A287000C7A22 /* libz.dylib */,
+				3CFDC74116D4A1DF000C7A22 /* libTestFlight.a */,
 				3CE320DD16CA1F850088F9B7 /* CoreData.framework */,
 				BEB4587D165090A3001EC588 /* UIKit.framework */,
 				BEB4587F165090A3001EC588 /* Foundation.framework */,
@@ -379,6 +388,7 @@
 		BEB45884165090A3001EC588 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3CFDC74016D4A1DF000C7A22 /* TestFlight.h */,
 				BE37B9201656062A001D46F0 /* Default.png */,
 				BEB45885165090A3001EC588 /* Wakeboard-Info.plist */,
 				BEB45886165090A3001EC588 /* InfoPlist.strings */,
@@ -599,6 +609,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wakeboard/Wakeboard-Prefix.pch";
 				INFOPLIST_FILE = "Wakeboard/Wakeboard-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -610,6 +624,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wakeboard/Wakeboard-Prefix.pch";
 				INFOPLIST_FILE = "Wakeboard/Wakeboard-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TestFlight.h"
 #import "FirstViewController.h"
 #import "SecondViewController.h"
 #import "ThirdViewController.h"
@@ -162,6 +163,8 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application
 {
+    [TestFlight takeOff:@"3c94fa4cb0193cee8d06dc6e18d73e2a_MTg5MzA4MjAxMy0wMi0yMCAwMToyNjo0Ny41OTkzODI"];
+    
     [self applyStylesheet];
 	// configure the portrait user interface
 	[self setupPortraitUserInterface];
