@@ -10,8 +10,7 @@
 
 @interface HomeCellView : UIView
 
-@property (strong, nonatomic) NSDictionary *cellDictionary;
-
-+ (CGFloat)heightForDictionary:(NSDictionary*)dictionary;
+@property (strong, nonatomic) TrickPost *cellTrickPost;
++ (CGFloat)cellHeightForTrickPost:(TrickPost*)trickPost;
 
 @end

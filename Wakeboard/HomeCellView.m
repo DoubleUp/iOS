@@ -62,6 +62,7 @@
         self.commentLabel = [UILabel blackRegularLabelWithSize:smallLabelSize];
         [self addSubview:self.commentLabel];
         
+        //?? hmm, don't want to have to do this
         self.trickPhoto = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"trickPhoto.png"]];
         [self addSubview:self.trickPhoto];
         
@@ -83,9 +84,9 @@
     return self;
 }
 
--(void)setCellDictionary:(NSDictionary *)cellDictionary
+-(void)setCellTrickPost:(TrickPost *)cellTrickPost
 {
-    _cellDictionary = cellDictionary;
+    _cellTrickPost = cellTrickPost;
     [self updateCellView];
 }
 
@@ -96,14 +97,14 @@
     CGFloat labelMargin = 4;
     
     //avatar
-    self.avatar.image = [UIImage imageNamed:[self.cellDictionary objectForKey:@"avatarFile"]];;
+    self.avatar.image = [UIImage imageNamed:self.cellTrickPost.whoDidTrick.avatar.imageFile];
     self.avatar.frame = CGRectMake(CELL_MARGIN, yPos, self.avatar.image.size.width, self.avatar.image.size.height);
     self.avatar.hidden = NO;
     
     //riderName
     yPos += 3;
     CGFloat titleXPos = CELL_MARGIN + self.avatar.frame.size.width + 2 * labelMargin;
-    self.riderLabel.text = [self.cellDictionary objectForKey:@"riderName"];
+    self.riderLabel.text = self.cellTrickPost.whoDidTrick.name;
     self.riderLabel.frame = CGRectMake(titleXPos, yPos, 220.0, labelHeight);
     self.riderLabel.textAlignment = NSTextAlignmentLeft;
     [self.riderLabel sizeToFit];
@@ -113,7 +114,7 @@
     
     self.locationIcon.frame = CGRectMake(titleXPos, yPos + 2, self.locationIcon.frame.size.width, self.locationIcon.frame.size.height);
     
-    self.locationLabel.text = [self.cellDictionary objectForKey:@"locationName"];
+    self.locationLabel.text = self.cellTrickPost.whichLocation.name;
     self.locationLabel.frame = CGRectMake(titleXPos + self.locationIcon.frame.size.width + labelMargin, yPos, 200.0, labelHeight);
     self.locationLabel.textAlignment = NSTextAlignmentLeft;
     [self.locationLabel sizeToFit];
@@ -122,7 +123,7 @@
     
     //trick photo
     self.trickPhoto.hidden = YES;
-    if([self.cellDictionary objectForKey:@"photoFile"])
+    if(self.cellTrickPost.trickImage.imageFile)
     {
         self.trickPhoto.frame = CGRectMake(CELL_MARGIN, yPos, self.trickPhoto.frame.size.width, self.trickPhoto.frame.size.height);
         self.trickPhoto.hidden = NO;
@@ -131,12 +132,12 @@
     }
     
     //trick label
-    self.trickLabel.text = [self.cellDictionary objectForKey:@"trickTitle"];
+    self.trickLabel.text = self.cellTrickPost.trickType.name;
     self.trickLabel.frame = CGRectMake(CELL_MARGIN, yPos, 220.0, labelHeight);
     self.trickLabel.textAlignment = NSTextAlignmentLeft;
     [self.trickLabel sizeToFit];
     
-    if([[self.cellDictionary objectForKey:@"wasDoubleUp"] boolValue])
+    if([self.cellTrickPost.trickType.doubleUp boolValue])
     {
         self.doubleUpLabel.text = @"off a double up.";
         self.doubleUpLabel.frame = CGRectMake(CELL_MARGIN + self.trickLabel.frame.size.width + labelMargin, yPos, 200.0, labelHeight);
@@ -150,17 +151,17 @@
     }
     
     //vouches
-    NSArray* vouchers = [self.cellDictionary objectForKey:@"vouchers"];
-    if(vouchers.count > 0)
+    if([self.cellTrickPost.whoVouchedTrick allObjects].count > 0)
     {
         yPos += labelHeight + 15;
         self.vouchIcon.frame = CGRectMake(CELL_MARGIN, yPos + 1, self.vouchIcon.frame.size.width, self.vouchIcon.frame.size.height);
         
         NSString* vouchText = @"";
-        for(NSUInteger i=0; i<vouchers.count; i++)
+        for(NSUInteger i=0; i<[self.cellTrickPost.whoVouchedTrick allObjects].count; i++)
         {
-            vouchText = [vouchText stringByAppendingString:(NSString*)([vouchers objectAtIndex:i])];
-            if(i < vouchers.count-1)
+            UserProfile* voucher = (UserProfile*)([[self.cellTrickPost.whoVouchedTrick allObjects] objectAtIndex:i]);
+            vouchText = [vouchText stringByAppendingString:voucher.nickName];
+            if(i < [self.cellTrickPost.whoVouchedTrick allObjects].count-1)
                 vouchText = [vouchText stringByAppendingString:@", "];
         }
         self.vouchLabel.text = vouchText;
@@ -178,24 +179,23 @@
     }
     
     //comments
-    NSArray* comments = [self.cellDictionary objectForKey:@"comments"];
+    NSArray* comments = [self.cellTrickPost.comments allObjects];
     if(comments.count > 0)
     {
         yPos += labelHeight + 5;
-        if(vouchers.count <= 0)
+        if([self.cellTrickPost.whoVouchedTrick allObjects].count <= 0)
             yPos += 15;
         
         self.commentIcon.frame = CGRectMake(CELL_MARGIN, yPos + 4, self.commentIcon.frame.size.width, self.commentIcon.frame.size.height);
         
         //?? just do the first comment for now
-        NSDictionary* commentDict = [comments objectAtIndex:0];
-        
-        self.commenterLabel.text = (NSString*)([commentDict objectForKey:@"commentor"]);
+        Comment* cellComment = [comments objectAtIndex:0];
+        self.commenterLabel.text = cellComment.commenter.nickName;
         self.commenterLabel.frame = CGRectMake(CELL_MARGIN + self.commentIcon.frame.size.width + labelMargin, yPos, 200.0, labelHeight);
         self.commenterLabel.textAlignment = NSTextAlignmentLeft;
         [self.commenterLabel sizeToFit];
         
-        self.commentLabel.text = (NSString*)([commentDict objectForKey:@"comment"]);
+        self.commentLabel.text = cellComment.text;
         self.commentLabel.frame = CGRectMake(CELL_MARGIN + self.commentIcon.frame.size.width + self.commenterLabel.frame.size.width + 2 *labelMargin, yPos, 200.0, labelHeight);
         self.commentLabel.textAlignment = NSTextAlignmentLeft;
         [self.commentLabel sizeToFit];
@@ -209,10 +209,9 @@
     yPos += labelHeight + 2*CELL_MARGIN;
     
     self.separator.frame = CGRectMake(0, yPos, self.frame.size.width, self.separator.frame.size.height);
-
 }
 
-+ (CGFloat)heightForDictionary:(NSDictionary*)dictionary
++ (CGFloat)cellHeightForTrickPost:(TrickPost*)trickPost;
 {
     //?? this is copied from the function above. This really needs to be done in one function if possible
     CGFloat yPos = 2*CELL_MARGIN - 5;
@@ -222,23 +221,22 @@
     yPos += labelHeight + 10;
     yPos += 35;
     
-    if([dictionary objectForKey:@"photoFile"])
+    
+    if(trickPost.trickImage.imageFile)
     {
-        UIImage* img = [UIImage imageNamed:[dictionary objectForKey:@"photoFile"]];
+        UIImage* img = [UIImage imageNamed:trickPost.trickImage.imageFile];
         yPos += img.size.height + CELL_MARGIN;
     }
     
-    NSArray* vouchers = [dictionary objectForKey:@"vouchers"];
-    if(vouchers.count > 0)
+    if([trickPost.whoVouchedTrick allObjects].count > 0)
     {
         yPos += labelHeight + 15;
     }
     
-    NSArray* comments = [dictionary objectForKey:@"comments"];
-    if(comments.count > 0)
+    if([trickPost.comments allObjects].count > 0)
     {
         yPos += labelHeight + 5;
-        if(vouchers.count <= 0)
+        if([trickPost.whoVouchedTrick allObjects].count <= 0)
             yPos += 15;
     }
     
@@ -246,6 +244,7 @@
     
     return yPos;
 }
+
 
 
 /*

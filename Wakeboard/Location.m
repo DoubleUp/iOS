@@ -2,7 +2,7 @@
 //  Location.m
 //  Wakeboard
 //
-//  Created by Gary Robinson on 2/17/13.
+//  Created by Gary Robinson on 2/21/13.
 //  Copyright (c) 2013 Chad Zeluff. All rights reserved.
 //
 
@@ -13,10 +13,10 @@
 
 @implementation Location
 
+@dynamic maxCoordinates;
 @dynamic minCooordinates;
 @dynamic name;
-@dynamic maxCoordinates;
-@dynamic trickPosts;
 @dynamic sports;
+@dynamic trickPosts;
 
 @end

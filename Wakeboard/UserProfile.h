@@ -2,7 +2,7 @@
 //  UserProfile.h
 //  Wakeboard
 //
-//  Created by Gary Robinson on 2/17/13.
+//  Created by Gary Robinson on 2/21/13.
 //  Copyright (c) 2013 Chad Zeluff. All rights reserved.
 //
 
@@ -13,15 +13,16 @@
 
 @interface UserProfile : NSManagedObject
 
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * email;
+@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * password;
+@property (nonatomic, retain) NSString * nickName;
+@property (nonatomic, retain) TrickType *accomplishedTricks;
+@property (nonatomic, retain) Image *avatar;
 @property (nonatomic, retain) Comment *comments;
+@property (nonatomic, retain) Sport *sports;
 @property (nonatomic, retain) NSSet *trickPosts;
 @property (nonatomic, retain) NSSet *vouchedTricks;
-@property (nonatomic, retain) Image *avatar;
-@property (nonatomic, retain) Sport *sports;
-@property (nonatomic, retain) TrickType *accomplishedTricks;
 @end
 
 @interface UserProfile (CoreDataGeneratedAccessors)

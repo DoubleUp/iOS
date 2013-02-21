@@ -2,7 +2,7 @@
 //  TrickPost.m
 //  Wakeboard
 //
-//  Created by Gary Robinson on 2/17/13.
+//  Created by Gary Robinson on 2/21/13.
 //  Copyright (c) 2013 Chad Zeluff. All rights reserved.
 //
 
@@ -18,16 +18,14 @@
 
 @implementation TrickPost
 
-@dynamic doubleUp;
-@dynamic imageFile;
 @dynamic timeStamp;
 @dynamic comments;
+@dynamic trickImage;
+@dynamic trickMovie;
+@dynamic trickSport;
 @dynamic trickType;
 @dynamic whichLocation;
 @dynamic whoDidTrick;
 @dynamic whoVouchedTrick;
-@dynamic trickSport;
-@dynamic trickImage;
-@dynamic trickMovie;
 
 @end

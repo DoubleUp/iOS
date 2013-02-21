@@ -2,7 +2,7 @@
 //  UserProfile.m
 //  Wakeboard
 //
-//  Created by Gary Robinson on 2/17/13.
+//  Created by Gary Robinson on 2/21/13.
 //  Copyright (c) 2013 Chad Zeluff. All rights reserved.
 //
 
@@ -16,14 +16,15 @@
 
 @implementation UserProfile
 
-@dynamic name;
 @dynamic email;
+@dynamic name;
 @dynamic password;
+@dynamic nickName;
+@dynamic accomplishedTricks;
+@dynamic avatar;
 @dynamic comments;
+@dynamic sports;
 @dynamic trickPosts;
 @dynamic vouchedTricks;
-@dynamic avatar;
-@dynamic sports;
-@dynamic accomplishedTricks;
 
 @end

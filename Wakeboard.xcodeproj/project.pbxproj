@@ -17,18 +17,18 @@
 		3C8E42F716CCE7F90058B132 /* Avatar-Home-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C8E42F316CCE7F90058B132 /* Avatar-Home-3.png */; };
 		3C8E42F816CCE7F90058B132 /* Avatar-Home-3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C8E42F416CCE7F90058B132 /* Avatar-Home-3@2x.png */; };
 		3C8E441316D1ED8A0058B132 /* WakeboardDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C8E441116D1ED890058B132 /* WakeboardDataModel.xcdatamodeld */; };
-		3C8E444716D1F9940058B132 /* TrickType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8E444616D1F9940058B132 /* TrickType.m */; };
-		3C8E444A16D1F9940058B132 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8E444916D1F9940058B132 /* Comment.m */; };
-		3C8E444D16D1F9950058B132 /* TrickPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8E444C16D1F9950058B132 /* TrickPost.m */; };
-		3C8E445016D1F9950058B132 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8E444F16D1F9950058B132 /* Image.m */; };
-		3C8E445316D1F9950058B132 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8E445216D1F9950058B132 /* Movie.m */; };
-		3C8E445616D1F9950058B132 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8E445516D1F9950058B132 /* UserProfile.m */; };
-		3C8E445916D1F9950058B132 /* Sport.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8E445816D1F9950058B132 /* Sport.m */; };
-		3C8E445C16D1F9950058B132 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8E445B16D1F9950058B132 /* Location.m */; };
 		3CE126C116CA062F0014FCC2 /* HomeCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE126C016CA062F0014FCC2 /* HomeCellView.m */; };
 		3CE320DE16CA1F850088F9B7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE320DD16CA1F850088F9B7 /* CoreData.framework */; };
 		3CFDC74216D4A1DF000C7A22 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFDC74116D4A1DF000C7A22 /* libTestFlight.a */; };
 		3CFDC74416D4A287000C7A22 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFDC74316D4A287000C7A22 /* libz.dylib */; };
+		3CFDC75416D60945000C7A22 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFDC75316D60945000C7A22 /* Image.m */; };
+		3CFDC75A16D60945000C7A22 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFDC75916D60945000C7A22 /* Movie.m */; };
+		3CFDC75D16D60945000C7A22 /* TrickPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFDC75C16D60945000C7A22 /* TrickPost.m */; };
+		3CFDC76016D60945000C7A22 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFDC75F16D60945000C7A22 /* Comment.m */; };
+		3CFDC76316D60945000C7A22 /* TrickType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFDC76216D60945000C7A22 /* TrickType.m */; };
+		3CFDC76616D60945000C7A22 /* Sport.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFDC76516D60945000C7A22 /* Sport.m */; };
+		3CFDC76916D60945000C7A22 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFDC76816D60945000C7A22 /* Location.m */; };
+		3CFDC76C16D60F67000C7A22 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFDC76B16D60F67000C7A22 /* UserProfile.m */; };
 		BE37B90316560556001D46F0 /* dotted-line.png in Resources */ = {isa = PBXBuildFile; fileRef = BE37B8E716560556001D46F0 /* dotted-line.png */; };
 		BE37B90416560556001D46F0 /* dotted-line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE37B8E816560556001D46F0 /* dotted-line@2x.png */; };
 		BE37B90516560556001D46F0 /* icon-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = BE37B8E916560556001D46F0 /* icon-arrow.png */; };
@@ -102,28 +102,28 @@
 		3C8E42F316CCE7F90058B132 /* Avatar-Home-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Avatar-Home-3.png"; sourceTree = "<group>"; };
 		3C8E42F416CCE7F90058B132 /* Avatar-Home-3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Avatar-Home-3@2x.png"; sourceTree = "<group>"; };
 		3C8E441216D1ED8A0058B132 /* WakeboardDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WakeboardDataModel.xcdatamodel; sourceTree = "<group>"; };
-		3C8E444516D1F9940058B132 /* TrickType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrickType.h; sourceTree = "<group>"; };
-		3C8E444616D1F9940058B132 /* TrickType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrickType.m; sourceTree = "<group>"; };
-		3C8E444816D1F9940058B132 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
-		3C8E444916D1F9940058B132 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
-		3C8E444B16D1F9940058B132 /* TrickPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrickPost.h; sourceTree = "<group>"; };
-		3C8E444C16D1F9950058B132 /* TrickPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrickPost.m; sourceTree = "<group>"; };
-		3C8E444E16D1F9950058B132 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
-		3C8E444F16D1F9950058B132 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
-		3C8E445116D1F9950058B132 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
-		3C8E445216D1F9950058B132 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
-		3C8E445416D1F9950058B132 /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
-		3C8E445516D1F9950058B132 /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
-		3C8E445716D1F9950058B132 /* Sport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sport.h; sourceTree = "<group>"; };
-		3C8E445816D1F9950058B132 /* Sport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sport.m; sourceTree = "<group>"; };
-		3C8E445A16D1F9950058B132 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
-		3C8E445B16D1F9950058B132 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		3CE126BF16CA062F0014FCC2 /* HomeCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCellView.h; sourceTree = "<group>"; };
 		3CE126C016CA062F0014FCC2 /* HomeCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCellView.m; sourceTree = "<group>"; };
 		3CE320DD16CA1F850088F9B7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3CFDC74016D4A1DF000C7A22 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestFlight.h; path = ../TestFlight.h; sourceTree = "<group>"; };
 		3CFDC74116D4A1DF000C7A22 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		3CFDC74316D4A287000C7A22 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		3CFDC75216D60945000C7A22 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		3CFDC75316D60945000C7A22 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		3CFDC75816D60945000C7A22 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		3CFDC75916D60945000C7A22 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		3CFDC75B16D60945000C7A22 /* TrickPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrickPost.h; sourceTree = "<group>"; };
+		3CFDC75C16D60945000C7A22 /* TrickPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrickPost.m; sourceTree = "<group>"; };
+		3CFDC75E16D60945000C7A22 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		3CFDC75F16D60945000C7A22 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		3CFDC76116D60945000C7A22 /* TrickType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrickType.h; sourceTree = "<group>"; };
+		3CFDC76216D60945000C7A22 /* TrickType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrickType.m; sourceTree = "<group>"; };
+		3CFDC76416D60945000C7A22 /* Sport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sport.h; sourceTree = "<group>"; };
+		3CFDC76516D60945000C7A22 /* Sport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sport.m; sourceTree = "<group>"; };
+		3CFDC76716D60945000C7A22 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		3CFDC76816D60945000C7A22 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		3CFDC76A16D60F67000C7A22 /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
+		3CFDC76B16D60F67000C7A22 /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
 		BE37B8E716560556001D46F0 /* dotted-line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dotted-line.png"; sourceTree = "<group>"; };
 		BE37B8E816560556001D46F0 /* dotted-line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dotted-line@2x.png"; sourceTree = "<group>"; };
 		BE37B8E916560556001D46F0 /* icon-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-arrow.png"; sourceTree = "<group>"; };
@@ -219,23 +219,23 @@
 		3C8E441416D1F8300058B132 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				3CFDC75216D60945000C7A22 /* Image.h */,
+				3CFDC76716D60945000C7A22 /* Location.h */,
+				3CFDC76816D60945000C7A22 /* Location.m */,
+				3CFDC76416D60945000C7A22 /* Sport.h */,
+				3CFDC76516D60945000C7A22 /* Sport.m */,
+				3CFDC76116D60945000C7A22 /* TrickType.h */,
+				3CFDC76216D60945000C7A22 /* TrickType.m */,
+				3CFDC75E16D60945000C7A22 /* Comment.h */,
+				3CFDC75F16D60945000C7A22 /* Comment.m */,
+				3CFDC75B16D60945000C7A22 /* TrickPost.h */,
+				3CFDC75C16D60945000C7A22 /* TrickPost.m */,
+				3CFDC75816D60945000C7A22 /* Movie.h */,
+				3CFDC75916D60945000C7A22 /* Movie.m */,
+				3CFDC75316D60945000C7A22 /* Image.m */,
 				3C8E441116D1ED890058B132 /* WakeboardDataModel.xcdatamodeld */,
-				3C8E445A16D1F9950058B132 /* Location.h */,
-				3C8E445B16D1F9950058B132 /* Location.m */,
-				3C8E445716D1F9950058B132 /* Sport.h */,
-				3C8E445816D1F9950058B132 /* Sport.m */,
-				3C8E445416D1F9950058B132 /* UserProfile.h */,
-				3C8E445516D1F9950058B132 /* UserProfile.m */,
-				3C8E445116D1F9950058B132 /* Movie.h */,
-				3C8E445216D1F9950058B132 /* Movie.m */,
-				3C8E444E16D1F9950058B132 /* Image.h */,
-				3C8E444F16D1F9950058B132 /* Image.m */,
-				3C8E444B16D1F9940058B132 /* TrickPost.h */,
-				3C8E444C16D1F9950058B132 /* TrickPost.m */,
-				3C8E444816D1F9940058B132 /* Comment.h */,
-				3C8E444916D1F9940058B132 /* Comment.m */,
-				3C8E444516D1F9940058B132 /* TrickType.h */,
-				3C8E444616D1F9940058B132 /* TrickType.m */,
+				3CFDC76A16D60F67000C7A22 /* UserProfile.h */,
+				3CFDC76B16D60F67000C7A22 /* UserProfile.m */,
 				3C0044A016C6636100F1069A /* posts.plist */,
 			);
 			name = CoreData;
@@ -528,14 +528,14 @@
 				BE7A694D165419DE0050074D /* UIFont+Additions.m in Sources */,
 				3CE126C116CA062F0014FCC2 /* HomeCellView.m in Sources */,
 				3C8E441316D1ED8A0058B132 /* WakeboardDataModel.xcdatamodeld in Sources */,
-				3C8E444716D1F9940058B132 /* TrickType.m in Sources */,
-				3C8E444A16D1F9940058B132 /* Comment.m in Sources */,
-				3C8E444D16D1F9950058B132 /* TrickPost.m in Sources */,
-				3C8E445016D1F9950058B132 /* Image.m in Sources */,
-				3C8E445316D1F9950058B132 /* Movie.m in Sources */,
-				3C8E445616D1F9950058B132 /* UserProfile.m in Sources */,
-				3C8E445916D1F9950058B132 /* Sport.m in Sources */,
-				3C8E445C16D1F9950058B132 /* Location.m in Sources */,
+				3CFDC75416D60945000C7A22 /* Image.m in Sources */,
+				3CFDC75A16D60945000C7A22 /* Movie.m in Sources */,
+				3CFDC75D16D60945000C7A22 /* TrickPost.m in Sources */,
+				3CFDC76016D60945000C7A22 /* Comment.m in Sources */,
+				3CFDC76316D60945000C7A22 /* TrickType.m in Sources */,
+				3CFDC76616D60945000C7A22 /* Sport.m in Sources */,
+				3CFDC76916D60945000C7A22 /* Location.m in Sources */,
+				3CFDC76C16D60F67000C7A22 /* UserProfile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

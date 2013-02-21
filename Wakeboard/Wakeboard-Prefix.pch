@@ -11,9 +11,20 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
 #endif
 
 #import "UIColor+Additions.h"
 #import "UIFont+Additions.h"
 #import "UIImage+Additions.h"
 #import "UILabel+Additions.h"
+
+//core data
+#import "Location.h"
+#import "Sport.h"
+#import "UserProfile.h"
+#import "Movie.h"
+#import "Image.h"
+#import "TrickPost.h"
+#import "Comment.h"
+#import "TrickType.h"

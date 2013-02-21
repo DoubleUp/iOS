@@ -6,7 +6,7 @@
         <relationship name="trickPost" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TrickPost" inverseName="comments" inverseEntity="TrickPost" syncable="YES"/>
     </entity>
     <entity name="Image" representedClassName="Image" syncable="YES">
-        <attribute name="imageData" attributeType="Binary" syncable="YES"/>
+        <attribute name="imageFile" attributeType="String" syncable="YES"/>
         <relationship name="avatarForUser" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UserProfile" inverseName="avatar" inverseEntity="UserProfile" syncable="YES"/>
         <relationship name="trickPost" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TrickPost" inverseName="trickImage" inverseEntity="TrickPost" syncable="YES"/>
     </entity>
@@ -29,8 +29,6 @@
         <relationship name="whoFollows" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UserProfile" inverseName="sports" inverseEntity="UserProfile" syncable="YES"/>
     </entity>
     <entity name="TrickPost" representedClassName="TrickPost" syncable="YES">
-        <attribute name="doubleUp" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
-        <attribute name="imageFile" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" attributeType="Date" syncable="YES"/>
         <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="trickPost" inverseEntity="Comment" syncable="YES"/>
         <relationship name="trickImage" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="trickPost" inverseEntity="Image" syncable="YES"/>
@@ -43,14 +41,16 @@
     </entity>
     <entity name="TrickType" representedClassName="TrickType" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="doubleUp" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="sports" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sport" inverseName="trickTypes" inverseEntity="Sport" syncable="YES"/>
-        <relationship name="trickPosts" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TrickPost" inverseName="trickType" inverseEntity="TrickPost" syncable="YES"/>
+        <relationship name="trickPosts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TrickPost" inverseName="trickType" inverseEntity="TrickPost" syncable="YES"/>
         <relationship name="whoAccomplished" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UserProfile" inverseName="accomplishedTricks" inverseEntity="UserProfile" syncable="YES"/>
     </entity>
     <entity name="UserProfile" representedClassName="UserProfile" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="nickName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="accomplishedTricks" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TrickType" inverseName="whoAccomplished" inverseEntity="TrickType" syncable="YES"/>
         <relationship name="avatar" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="avatarForUser" inverseEntity="Image" syncable="YES"/>
@@ -61,12 +61,12 @@
     </entity>
     <elements>
         <element name="Comment" positionX="-3240" positionY="-4851" width="128" height="88"/>
-        <element name="Location" positionX="-2655" positionY="-4986" width="128" height="118"/>
-        <element name="UserProfile" positionX="-2837" positionY="-4797" width="128" height="178"/>
-        <element name="TrickType" positionX="-3098" positionY="-5233" width="128" height="118"/>
-        <element name="TrickPost" positionX="-3429" positionY="-5112" width="128" height="208"/>
-        <element name="Sport" positionX="-2828" positionY="-5166" width="128" height="118"/>
         <element name="Image" positionX="-3240" positionY="-4725" width="128" height="88"/>
+        <element name="Location" positionX="-2655" positionY="-4986" width="128" height="118"/>
         <element name="Movie" positionX="-3240" positionY="-4608" width="128" height="73"/>
+        <element name="Sport" positionX="-2828" positionY="-5166" width="128" height="118"/>
+        <element name="TrickPost" positionX="-3429" positionY="-5112" width="128" height="178"/>
+        <element name="TrickType" positionX="-3098" positionY="-5233" width="128" height="133"/>
+        <element name="UserProfile" positionX="-2837" positionY="-4797" width="128" height="193"/>
     </elements>
 </model>

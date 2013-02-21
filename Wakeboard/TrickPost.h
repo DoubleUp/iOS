@@ -2,7 +2,7 @@
 //  TrickPost.h
 //  Wakeboard
 //
-//  Created by Gary Robinson on 2/17/13.
+//  Created by Gary Robinson on 2/21/13.
 //  Copyright (c) 2013 Chad Zeluff. All rights reserved.
 //
 
@@ -13,17 +13,15 @@
 
 @interface TrickPost : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * doubleUp;
-@property (nonatomic, retain) NSString * imageFile;
 @property (nonatomic, retain) NSDate * timeStamp;
 @property (nonatomic, retain) NSSet *comments;
+@property (nonatomic, retain) Image *trickImage;
+@property (nonatomic, retain) Movie *trickMovie;
+@property (nonatomic, retain) Sport *trickSport;
 @property (nonatomic, retain) TrickType *trickType;
 @property (nonatomic, retain) Location *whichLocation;
 @property (nonatomic, retain) UserProfile *whoDidTrick;
 @property (nonatomic, retain) NSSet *whoVouchedTrick;
-@property (nonatomic, retain) Sport *trickSport;
-@property (nonatomic, retain) Image *trickImage;
-@property (nonatomic, retain) Movie *trickMovie;
 @end
 
 @interface TrickPost (CoreDataGeneratedAccessors)

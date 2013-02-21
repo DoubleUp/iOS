@@ -2,7 +2,7 @@
 //  TrickType.h
 //  Wakeboard
 //
-//  Created by Gary Robinson on 2/17/13.
+//  Created by Gary Robinson on 2/21/13.
 //  Copyright (c) 2013 Chad Zeluff. All rights reserved.
 //
 
@@ -15,8 +15,9 @@
 
 @property (nonatomic, retain) NSString * category;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) TrickPost *trickPosts;
+@property (nonatomic, retain) NSNumber * doubleUp;
 @property (nonatomic, retain) NSSet *sports;
+@property (nonatomic, retain) TrickPost *trickPosts;
 @property (nonatomic, retain) UserProfile *whoAccomplished;
 @end
 
